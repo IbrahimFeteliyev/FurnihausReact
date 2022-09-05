@@ -1,0 +1,48 @@
+.moreAbout-section {
+
+    .boxes {
+        .left-box {
+            height: 100%;
+            background-color: #6cb975;
+            position: relative;
+
+            .text {
+                width: 60%;
+                position: absolute;
+                left: 60%;
+                top: 50%;
+                transform: translate(-60%, -50%);
+                color: white;
+
+                h2 {
+                    margin-bottom: 20px;
+                    font-size: 40px;
+                    font-weight: 600;
+                }
+
+                button {
+                    margin-top: 10px;
+                    font-size: 13px;
+                    font-weight: 500;
+                    background-color: inherit;
+                    color: white;
+                    padding: 12px 30px;
+                    border: 2px solid white;
+                    transition: 0.3s ease-in-out;
+
+                    &:hover {
+                        background-color: #151514;
+                        border-color: #151514;
+                    }
+                }
+            }
+        }
+
+        .right-box {
+            img {
+                background-position: center;
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+.review-section{
+    .raiting-box{
+
+    }
+    .inputs{
+
+        span{
+            display: block;
+        }
+        input{
+            width: 100%;
+        }
+    }
+
+    button{
+        margin: 10px 0;
+        width: 100%;
+        background-color: black;
+        color: white;
+        height: 40px;
+        &:hover{
+            
+        }
+    }
+}

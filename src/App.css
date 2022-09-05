@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+:root{
+  --swiper-theme-color: #6cb975 !important;
+}
+.swiper-pagination-progressbar{
+  background-color: transparent !important;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +42,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.detail-buttons button{
+    display: block;
+    width: 300px;
+    border: none;
+    height: 40px;
+}
+
+.detail-buttons button:first-child{
+background-color: rgba(214, 214, 214, 0.715);
+}
+
+.detail-buttons button:last-child{
+  background-color: black;
+  color: white;
+}
+
+.detail-section{
+  border-top: 1px solid gray;
 }
