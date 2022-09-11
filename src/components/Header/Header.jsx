@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Header/header.scss'
 import SearchIcon from '@mui/icons-material/Search';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Link } from 'react-router-dom';
+import { BASE_URL } from '../../api/Config';
+
+
 
 function Header() {
+
+  const [category, setCategory] = useState([]);
+
+  const getCategories = async () => {
+    await fetch(BASE_URL + "category/getallchild")
+      .then((a) => a.json())
+      .then((data) => setCategory(data));
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
+
   return (
     <div>
       <div className="header">
@@ -33,45 +50,26 @@ function Header() {
                   <li className='header-li'>
                     <a href="#">FURNITURE</a>
                     <ul class="list-unstyled  dropped-big-menu">
-                      <li className='dropped-big-menu-li'>
-                        <ul>
-                          <li class="list-unstyled">
-                            <img className='img-fluid' src="https://furnihaus.kaththemes.com/demo/wp-content/uploads/2018/05/livingroom.jpg" alt="" />
-                          </li>
-                          <li class="list-unstyled"><h4>salam</h4></li>
-                          <li class="list-unstyled"><a href="#">salam</a></li>
-                          <li class="list-unstyled"><a href="#">salam</a></li>
-                          <li class="list-unstyled"><a href="#">salam</a></li>
-                          <li class="list-unstyled"><a href="#">salam</a></li>
 
-                        </ul>
-                      </li>
-                      <li className='dropped-big-menu-li'>
-                        <ul>
-                          <li class="list-unstyled">
-                            <img className='img-fluid' src="https://furnihaus.kaththemes.com/demo/wp-content/uploads/2018/05/livingroom.jpg" alt="" />
+                      {
+                        category &&
+                        category.map((e) => (
+                          <li className='dropped-big-menu-li' key={Math.floor(Math.random() * 100000000)}>
+                            <ul>
+                              <li class="list-unstyled">
+                                <img className='img-fluid' src="https://furnihaus.kaththemes.com/demo/wp-content/uploads/2018/05/livingroom.jpg" alt="" />
+                              </li>
+                              <li class="list-unstyled"><h4>{e.name}</h4></li>
+                              {e.childCategory.map((cc) => (
+                                <>
+                                  <p>{cc.childCategoryName}</p>
+                                </>
+                              ))}
+                            </ul>
                           </li>
-                          <li class="list-unstyled">salam</li>
-                          <li class="list-unstyled">salam</li>
-                          <li class="list-unstyled">salam</li>
-                          <li class="list-unstyled">salam</li>
-                          <li class="list-unstyled">salam</li>
+                        ))}
 
-                        </ul>
-                      </li>
-                      <li className='dropped-big-menu-li'>
-                        <ul>
-                          <li class="list-unstyled">
-                            <img className='img-fluid' src="https://furnihaus.kaththemes.com/demo/wp-content/uploads/2018/05/livingroom.jpg" alt="" />
-                          </li>
-                          <li class="list-unstyled">salam</li>
-                          <li class="list-unstyled">salam</li>
-                          <li class="list-unstyled">salam</li>
-                          <li class="list-unstyled">salam</li>
-                          <li class="list-unstyled">salam</li>
 
-                        </ul>
-                      </li>
                     </ul>
                   </li>
                   <li className='header-li'><Link to="/shop">SHOP</Link></li>
@@ -88,7 +86,9 @@ function Header() {
                   <FavoriteBorderIcon />
                   <AddShoppingCartIcon />
                 </div>
-                <span>LOGIN</span>
+                <span className='login-button'>
+                  <Link to="/login">LOGIN</Link>
+                </span>
               </div>
             </div>
           </div>

@@ -106,7 +106,7 @@
 
                             li {
                                 padding: 5px;
- 
+
                                 a {
                                     &:hover {
                                         color: #6cb975;
@@ -145,6 +145,15 @@
             svg {
                 width: 20px;
                 margin-right: 5px;
+            }
+        }
+
+        .login-button {
+            margin-left: 15px;
+            a {
+                text-decoration: none;
+                color: black;
+                font-size: 18px;
             }
         }
     }

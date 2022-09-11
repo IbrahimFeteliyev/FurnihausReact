@@ -1,0 +1,18 @@
+.login-section {
+    background-image: url("https://www.10wallpaper.com/wallpaper/1920x1080/1606/Minimalist_interior_design_theme_HD_Wallpaper_03_1920x1080.jpg");
+    height: 90vh;
+    width: 100%;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .login-box{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: white;
+        padding: 50px;
+        border-radius: 15px;
+    }
+}

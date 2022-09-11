@@ -25,6 +25,7 @@
     "redux-thunk": "^2.4.1",
     "sass": "^1.53.0",
     "start": "^5.1.0",
+    "sweetalert2-react": "^0.8.3",
     "swiper": "^8.3.1",
     "web-vitals": "^2.1.4"
   },

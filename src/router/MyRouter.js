@@ -6,6 +6,8 @@ import Blog from '../pages/Blog'
 import Detail from '../pages/Detail'
 import Home from '../pages/Home'
 import Shop from '../pages/Shop'
+import LoginPage from '../pages/LoginPage'
+import RegisterPage from '../pages/RegisterPage'
 
 function MyRouter() {
   return (
@@ -17,6 +19,8 @@ function MyRouter() {
             <Route path='/detail' element={<Detail/>}/>
             <Route path='/blog' element={<Blog/>}/>
             <Route path='/allblogs' element={<AllBlogs/>}/>
+            <Route path='/login' element={<LoginPage/>}/>
+            <Route path='/register' element={<RegisterPage/>}/>
         </Routes>
    </div>
   )
