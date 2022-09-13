@@ -65,7 +65,7 @@ function Footer() {
 
       <div className="footer-bottom">
         <div className="container">
-          <div class="row align-items-center">
+          <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="footer-bottom-left">
                 <span>© 2022 Furnihaus. All rights reserved</span>

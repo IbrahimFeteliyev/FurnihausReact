@@ -1,16 +1,39 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from "react";
 import '../Header/header.scss'
 import SearchIcon from '@mui/icons-material/Search';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from '../../api/Config';
-
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useDispatch, useSelector } from "react-redux";
+import { CartContext } from "../../context/MyContext";
+import { logoutUserAction } from "../../redux/Actions/UserAction";
 
 
 function Header() {
 
   const [category, setCategory] = useState([]);
+  const { userInfo } = useSelector((state) => state.user);
+  const { cartCount } = useContext(CartContext)
+  const { cartItems } = useSelector((state) => state.cart);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+
+  const countTotal = () => {
+    var price = 0;
+    cartItems.map((cart) => {
+      price += cart.price * cart.quantity;
+    });
+    setTotalPrice(price);
+  };
+
+  const logOut = () => {
+    dispatch(logoutUserAction())
+    navigate("/")
+  }
 
   const getCategories = async () => {
     await fetch(BASE_URL + "category/getallchild")
@@ -19,8 +42,11 @@ function Header() {
   };
 
   useEffect(() => {
+    countTotal();
     getCategories();
-  }, []);
+  }, [totalPrice, cartItems, userInfo]);
+
+
 
 
   return (
@@ -40,7 +66,7 @@ function Header() {
                 <ul className='header-ul list-unstyled d-flex justify-content-between'>
                   <li className='header-li'>
                     <Link to="/">HOME</Link>
-                    <ul class="list-unstyled dropped-item">
+                    <ul className="list-unstyled dropped-item">
                       <li><a href="#">Demo V1</a></li>
                       <li><a href="#">Demo V2</a></li>
                       <li><a href="#">Demo V3</a></li>
@@ -49,17 +75,17 @@ function Header() {
                   </li>
                   <li className='header-li'>
                     <a href="#">FURNITURE</a>
-                    <ul class="list-unstyled  dropped-big-menu">
+                    <ul className="list-unstyled  dropped-big-menu">
 
                       {
                         category &&
                         category.map((e) => (
                           <li className='dropped-big-menu-li' key={Math.floor(Math.random() * 100000000)}>
                             <ul>
-                              <li class="list-unstyled">
+                              <li className="list-unstyled">
                                 <img className='img-fluid' src="https://furnihaus.kaththemes.com/demo/wp-content/uploads/2018/05/livingroom.jpg" alt="" />
                               </li>
-                              <li class="list-unstyled"><h4>{e.name}</h4></li>
+                              <li className="list-unstyled"><h4>{e.name}</h4></li>
                               {e.childCategory.map((cc) => (
                                 <>
                                   <p>{cc.childCategoryName}</p>
@@ -84,11 +110,45 @@ function Header() {
                 <div className="icons">
                   <SearchIcon />
                   <FavoriteBorderIcon />
-                  <AddShoppingCartIcon />
+                  <span className="shopcart">
+                    <AddShoppingCartIcon />
+                    <span className="count">
+                    {cartCount}
+                    </span>
+                  </span>
+
                 </div>
-                <span className='login-button'>
-                  <Link to="/login">LOGIN</Link>
-                </span>
+                <div className="user">
+                  <i
+                    style={{ fontSize: "15px" }}
+                    className="fa-solid fa-user"
+                  ></i>
+                  <span><AccountCircleIcon />Account</span>
+                  <i className="fa-solid fa-angle-down"></i>
+                  <ul>
+                    {
+                      userInfo.length === 0 ? (
+                        <Link to="/login" style={{ textDecoration: "none" }}>
+                        </Link>
+                      ) : (
+                        <Link to='/account' style={{ textDecoration: "none" }}>
+                          <li>Hesabım</li>
+                        </Link>
+                      )
+                    }
+
+                    <li>Sifariş Tarixçəsi</li>
+                    {userInfo.length === 0 ? (
+                      <Link to="/login" style={{ textDecoration: "none" }}>
+                        <li>Giriş</li>
+                      </Link>
+                    ) : (
+                      <Link to="/" style={{ textDecoration: "none" }}>
+                        <li onClick={() => logOut()}>Çıxış</li>
+                      </Link>
+                    )}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import { GET_USER, LOGIN_USER, LOGOUT_USER } from '../Constants/UserConstants';
-import { BASE_URL } from './../../api/Config';
+import { BASE_URL } from '../../api/Config';
 
 export const loginUserAction = (email, password) => async (dispach, getState) => {
     var user = await fetch(`${BASE_URL}Auth/login`, {

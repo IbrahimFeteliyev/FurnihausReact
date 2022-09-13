@@ -21,8 +21,8 @@ function ProductDetail() {
                             <div className="right-box">
                                 <h1>Adelaide Bar Tool
                                 </h1>
-                                <h5 class="price">Price: $200.00</h5>
-                                <h5 class="stock"><CheckBoxIcon /><span>INSTOCK</span></h5>
+                                <h5 className="price">Price: $200.00</h5>
+                                <h5 className="stock"><CheckBoxIcon /><span>INSTOCK</span></h5>
                                 <div className="count d-flex">
                                     <RemoveIcon />
                                     <input value={1} type="text" />

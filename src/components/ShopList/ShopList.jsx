@@ -14,7 +14,7 @@ function Shop() {
             <section className="shop-list">
                 <div className="container">
                     <div className="products">
-                        <div class="row">
+                        <div className="row">
                             <div className="col-lg-4">
                                 <div className="product-box">
                                     <div className="product-img">

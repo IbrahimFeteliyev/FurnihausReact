@@ -146,14 +146,86 @@
                 width: 20px;
                 margin-right: 5px;
             }
+
+            .shopcart {
+                    position: relative;
+                .count {
+                    position: absolute;
+                    top: -50%;
+                    right: -5%;
+                }
+            }
         }
 
         .login-button {
             margin-left: 15px;
+
             a {
                 text-decoration: none;
                 color: black;
                 font-size: 18px;
+            }
+        }
+
+
+        .user {
+
+            position: relative;
+            margin-left: 20px;
+
+            span {
+                font-size: 13px;
+                font-weight: 500;
+                cursor: pointer;
+                margin-left: 7px;
+                transition: 0.3s ease-in-out;
+            }
+
+            i {
+                font-size: 10px;
+                cursor: pointer;
+            }
+
+            ul {
+                box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+                    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+                padding: 0px 0px;
+                position: absolute;
+                top: 38px;
+                width: 150px;
+                right: 0px;
+                transition: 0.3s ease-in-out;
+                display: inline-block;
+                background: #fff;
+                opacity: 0;
+                transform: translateY(20px);
+                visibility: hidden;
+                z-index: 999999;
+
+                li {
+                    list-style: none;
+                    font-size: 12px;
+                    font-family: 'Times New Roman', Times, serif;
+                    color: black;
+                    cursor: pointer;
+                    transition: 0.3s ease-in-out;
+                    padding: 10px;
+                    z-index: 999999999;
+
+                    &:hover {
+                        background-color: #515151;
+                        color: white;
+
+                    }
+                }
+            }
+
+            &:hover {
+                ul {
+                    visibility: visible;
+                    opacity: 1;
+                    transform: translateY(0px);
+                }
             }
         }
     }
