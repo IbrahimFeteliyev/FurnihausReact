@@ -13,8 +13,13 @@ import { addToCartAction } from './../../redux/Actions/CartAction';
 import { addToFavoriesAction } from "../../redux/Actions/FavoriesAction";
 import { getProductsAction } from "../../redux/Actions/ProductAction";
 import { CartContext } from "../../context/MyContext";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
-
+/////////////
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+/////////////
 
 function TrendingProducts() {
     const { cartItems } = useSelector((state) => state.cart)
@@ -23,6 +28,13 @@ function TrendingProducts() {
     const dispatch = useDispatch();
     const [cart, setCart] = useState(0)
     const { cartCount, setCartCount } = useContext(CartContext);
+
+
+    /////////////
+    const notify = () => toast("Product added to cart !");
+    const notifyF = () => toast("Product added to favourites !");
+    /////////////
+
 
     const addToCartHadler = (id, name) => {
         var myCart = cartItems.find(e => e.id === id)
@@ -41,8 +53,9 @@ function TrendingProducts() {
         } else {
             dispatch(addToFavoriesAction(id, 1))
         }
-        setCartCount(cartCount+1);
+        setCartCount(cartCount + 1);
     }
+
 
     useEffect(() => {
         dispatch(getProductsAction());
@@ -75,16 +88,16 @@ function TrendingProducts() {
                                     <div className="trendingproduct-img">
                                         <img src={e.coverPhoto} alt="" />
                                         <div className="icons">
-                                            <a href="#" className="icon-box my-1">
-                                                <span>A</span>
+                                            <a className="icon-box my-1" onClick={() => { addToCartHandler(e.id, e.name); notifyF(); }}>
+                                                <FavoriteBorderIcon />
                                             </a>
-                                            <a href="#" className="icon-box my-1">
-                                                <span>B</span>
+                                            <a  className="icon-box my-1" onClick={() => { addToCartHadler(e.id, e.name); notify(); }}>
+                                                <AddShoppingCartIcon/>
                                             </a>
-                                            <a href="#" className="icon-box my-1">
+                                            <a  className="icon-box my-1">
                                                 <span>C</span>
                                             </a>
-                                            <a href="#" className="icon-box my-1">
+                                            <a  className="icon-box my-1">
                                                 <span>D</span>
                                             </a>
                                         </div>
@@ -95,16 +108,28 @@ function TrendingProducts() {
                                         <span className='my-2 d-block'>{e.name}</span>
                                         <span className='my-2 d-block'>Price : {e.price} $</span>
                                     </div>
-                                    <button className="cart-button" onClick={() => addToCartHadler(e.id, e.name)}>Add to Cart</button>
+                                    <button className="cart-button" onClick={() => { addToCartHadler(e.id, e.name); notify(); }}>Add to Cart</button>
                                 </div>
                             </SwiperSlide>
                         ))}
 
 
-
                 </Swiper>
 
             </div>
+            <ToastContainer
+                limit={3}
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+            <ToastContainer />
         </section>
     )
 }

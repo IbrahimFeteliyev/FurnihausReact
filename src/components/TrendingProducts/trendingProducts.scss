@@ -93,6 +93,10 @@
                     .icon-box {
                         opacity: 1;
                         transform: translateX(0);
+                        cursor: pointer;
+                        svg{
+                            color: white;
+                        }
                     }
 
                 }

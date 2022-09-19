@@ -8,9 +8,12 @@ import Home from '../pages/Home'
 import Shop from '../pages/Shop'
 import LoginPage from '../pages/LoginPage'
 import RegisterPage from '../pages/RegisterPage'
-import NotFound from '../pages/NotFound'
+import NotFoundPage from '../pages/NotFoundPage'
 import Account from '../components/Account/Account'
 import CartPage from '../pages/CartPage'
+import FavouritePage from '../pages/FavouritePage'
+import ConfirmCart from '../pages/ConfirmCart'
+import CartSuccess from '../pages/CartSuccess'
 
 function MyRouter() {
   return (
@@ -26,7 +29,10 @@ function MyRouter() {
             <Route path='/register' element={<RegisterPage/>}/>
             <Route path='/account' element={<Account/>}/>
             <Route path='/cart' element={<CartPage/>}/>
-            <Route path='*' element={<NotFound/>}/>
+            <Route path='/favourite' element={<FavouritePage/>}/>
+            <Route path='/confirmcart' element={<ConfirmCart/>}/>
+            <Route path='/cartsuccess' element={<CartSuccess/>}/>
+            <Route path='*' element={<NotFoundPage/>}/>
         </Routes>
    </div>
   )

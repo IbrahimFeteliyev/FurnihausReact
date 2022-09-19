@@ -15,7 +15,6 @@ function Header() {
 
   const [category, setCategory] = useState([]);
   const { userInfo } = useSelector((state) => state.user);
-  const { cartCount } = useContext(CartContext)
   const { cartItems } = useSelector((state) => state.cart);
   const [totalPrice, setTotalPrice] = useState(0);
   const dispatch = useDispatch()
@@ -109,22 +108,17 @@ function Header() {
               <div className="header-right">
                 <div className="icons">
                   <SearchIcon />
-                  <FavoriteBorderIcon />
-                  <span className="shopcart">
-                    <AddShoppingCartIcon />
-                    <span className="count">
-                    {cartCount}
-                    </span>
-                  </span>
+                  <Link to="/favourite">
+                    <FavoriteBorderIcon   style={{color: "black"}}/>
+                  </Link>
+                  <Link to="/cart">
+                      <AddShoppingCartIcon  style={{color: "black"}}/>
+                  </Link>
 
                 </div>
                 <div className="user">
-                  <i
-                    style={{ fontSize: "15px" }}
-                    className="fa-solid fa-user"
-                  ></i>
+
                   <span><AccountCircleIcon />Account</span>
-                  <i className="fa-solid fa-angle-down"></i>
                   <ul>
                     {
                       userInfo.length === 0 ? (
