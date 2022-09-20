@@ -15,11 +15,8 @@ import { getProductsAction } from "../../redux/Actions/ProductAction";
 import { CartContext } from "../../context/MyContext";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-
-/////////////
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-/////////////
 
 function TrendingProducts() {
     const { cartItems } = useSelector((state) => state.cart)
@@ -29,12 +26,8 @@ function TrendingProducts() {
     const [cart, setCart] = useState(0)
     const { cartCount, setCartCount } = useContext(CartContext);
 
-
-    /////////////
     const notify = () => toast("Product added to cart !");
     const notifyF = () => toast("Product added to favourites !");
-    /////////////
-
 
     const addToCartHadler = (id, name) => {
         var myCart = cartItems.find(e => e.id === id)

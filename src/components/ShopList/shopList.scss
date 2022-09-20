@@ -28,20 +28,21 @@
 .shop-list{
     padding: 100px 0;
     .products{
-        .product-box {
+        .trendingproduct-box {
             overflow: hidden;
     
-            .product-img {
+            .trendingproduct-img {
                 position: relative;
     
                 background-color: rgba(211, 211, 211, 0.21);
                 width: 100%;
-                height: 100%;
     
                 img {
                     padding: 15% 0;
                     width: 100%;
                     transition: 0.3s ease-in-out;
+                    height: 550px;
+    
                 }
     
                 .icons {
@@ -95,14 +96,22 @@
             }
     
     
-            .product-text {
+            .trendingproduct-text {
                 span {
                     font-weight: 500;
                 }
             }
     
+            .cart-button{
+                width: 100%;
+                border: none;
+                background-color: #ffc400;
+                padding: 5px;
+                border-radius: 5px;
+            }
+    
             &:hover {
-                .product-img {
+                .trendingproduct-img {
                     img {
                         transform: scale(1.1);
                     }
@@ -111,6 +120,10 @@
                         .icon-box {
                             opacity: 1;
                             transform: translateX(0);
+                            cursor: pointer;
+                            svg{
+                                color: white;
+                            }
                         }
     
                     }
