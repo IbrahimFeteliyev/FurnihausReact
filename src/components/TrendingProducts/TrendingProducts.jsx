@@ -17,11 +17,12 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 
 function TrendingProducts() {
     const { cartItems } = useSelector((state) => state.cart)
     const { favoriesItems } = useSelector((state) => state.favories)
-    const getProduct = useSelector((state) => state.products.products.message);
+    const { products } = useSelector((state) => state.products)
     const dispatch = useDispatch();
     const [cart, setCart] = useState(0)
     const { cartCount, setCartCount } = useContext(CartContext);
@@ -29,7 +30,7 @@ function TrendingProducts() {
     const notify = () => toast("Product added to cart !");
     const notifyF = () => toast("Product added to favourites !");
 
-    const addToCartHadler = (id, name) => {
+    const addToCartHandler = (id, name) => {
         var myCart = cartItems.find(e => e.id === id)
         if (myCart) {
             dispatch(addToCartAction(id, myCart.quantity + 1))
@@ -39,7 +40,7 @@ function TrendingProducts() {
         setCartCount(cartCount + 1);
     }
 
-    const addToCartHandler = (id, name) => {
+    const addToFavHandler = (id, name) => {
         var myCart = favoriesItems.find(e => e.id === id)
         if (myCart) {
             dispatch(addToFavoriesAction(id, myCart.quantity + 1))
@@ -74,55 +75,41 @@ function TrendingProducts() {
                     //   onSlideChange={() => console.log('slide change')}
                     Pagination
                 >
-                    {getProduct &&
-                        getProduct.map((e) => (
+                    {products &&
+                        products.map((e) => (
                             <SwiperSlide key={Math.floor(Math.random() * 100000000)}>
-                                <div className="trendingproduct-box">
-                                    <div className="trendingproduct-img">
-                                        <img src={e.coverPhoto} alt="" />
-                                        <div className="icons">
-                                            <a className="icon-box my-1" onClick={() => { addToCartHandler(e.id, e.name); notifyF(); }}>
-                                                <FavoriteBorderIcon />
-                                            </a>
-                                            <a  className="icon-box my-1" onClick={() => { addToCartHadler(e.id, e.name); notify(); }}>
-                                                <AddShoppingCartIcon/>
-                                            </a>
-                                            <a  className="icon-box my-1">
-                                                <span>C</span>
-                                            </a>
-                                            <a  className="icon-box my-1">
-                                                <span>D</span>
-                                            </a>
+                                <Link style={{ textDecoration: 'none', color: 'black' }} to={'/product/' + e.id}  >
+                                    <div className="trendingproduct-box">
+                                        <div className="trendingproduct-img">
+                                            <img src={e.coverPhoto} alt="" />
+                                            <div className="icons">
+                                                <a className="icon-box my-1" onClick={() => { addToFavHandler(e.id, e.name); notifyF(); }}>
+                                                    <FavoriteBorderIcon />
+                                                </a>
+                                                <a className="icon-box my-1" onClick={() => { addToCartHandler(e.id, e.name); notify(); }}>
+                                                    <AddShoppingCartIcon />
+                                                </a>
+                                                <a className="icon-box my-1">
+                                                    <span>C</span>
+                                                </a>
+                                                <a className="icon-box my-1">
+                                                    <span>D</span>
+                                                </a>
+                                            </div>
+
                                         </div>
 
+                                        <div className="trendingproduct-text text-center">
+                                            <span className='my-2 d-block'>{e.name}</span>
+                                            <span className='my-2 d-block'>Price : {e.price} $</span>
+                                        </div>
+                                        <button className="cart-button" onClick={() => { addToCartHandler(e.id, e.name); notify(); }}>Add to Cart</button>
                                     </div>
-
-                                    <div className="trendingproduct-text text-center">
-                                        <span className='my-2 d-block'>{e.name}</span>
-                                        <span className='my-2 d-block'>Price : {e.price} $</span>
-                                    </div>
-                                    <button className="cart-button" onClick={() => { addToCartHadler(e.id, e.name); notify(); }}>Add to Cart</button>
-                                </div>
+                                </Link>
                             </SwiperSlide>
                         ))}
-
-
                 </Swiper>
-
             </div>
-            <ToastContainer
-                limit={3}
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
-            <ToastContainer />
         </section>
     )
 }

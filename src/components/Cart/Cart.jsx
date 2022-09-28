@@ -1,6 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "../Cart/cart.scss";
 import Swal from "sweetalert2";
@@ -44,7 +42,7 @@ const Cart = () => {
           reverseButtons: true,
           closeOnConfirm: false
         })
-        .then((isConfirm,dismiss) => {
+        .then((isConfirm, dismiss) => {
           if (isConfirm) {
             if (cartItems.length > 0) {
               dispach(CheckOutAction(userInfo.id));
@@ -58,9 +56,9 @@ const Cart = () => {
           }
           else if (
             dismiss === Swal.DismissReason.cancel
-            
+
           ) {
-            
+
             swalWithBootstrapButtons.fire(
               "Ləğv olundu.",
               "error"
@@ -94,25 +92,29 @@ const Cart = () => {
         <div className="container">
           <div className="top">
             <table>
-              <tr>
-                <th>Şəkil</th>
-                <th>Məhsulun adı</th>
-                <th>Sayı</th>
-                <th>Qiyməti</th>
-                <th>Məbləğ</th>
-              </tr>
+              <thead>
+                <tr>
+                  <th>Şəkil</th>
+                  <th>Məhsulun adı</th>
+                  <th>Sayı</th>
+                  <th>Qiyməti</th>
+                  <th>Məbləğ</th>
+                </tr>
+              </thead>
 
               {cartItems.length > 0
                 ? cartItems.map((product) => (
-                  <tr>
-                    <td>
-                      <img width="150px" src={product.img} alt="" />
-                    </td>
-                    <td>{product.name}</td>
-                    <td>{product.quantity} ədəd</td>
-                    <td>{product.price}₼</td>
-                    <td>{product.price * product.quantity}₼</td>
-                  </tr>
+                  <tbody key={Math.floor(Math.random() * 100000000)}>
+                    <tr>
+                      <td>
+                        <img width="150px" src={product.img} alt="" />
+                      </td>
+                      <td>{product.name}</td>
+                      <td>{product.quantity} ədəd</td>
+                      <td>{product.price}₼</td>
+                      <td>{product.price * product.quantity}₼</td>
+                    </tr>
+                  </tbody>
                 ))
                 : "Mehsul yoxdur"}
             </table>
@@ -135,22 +137,26 @@ const Cart = () => {
                   <div className="col-lg-5">
                     <h3>Ümumi hesab</h3>
                     <table>
-                      <tr>
-                        <td>
-                          <div className="row justify-content-between align-items-center">
-                            <div className="col-lg-8">Məbləğ</div>
-                            <div className="col-lg-4 price"> {totalPrice}₼</div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div className="row justify-content-between align-items-center">
-                            <div className="col-lg-8">Ümumi məbləğ</div>
-                            <div className="col-lg-4 price"> {totalPrice}₼</div>
-                          </div>
-                        </td>
-                      </tr>
+                      <thead>
+                        <tr>
+                          <td>
+                            <div className="row justify-content-between align-items-center">
+                              <div className="col-lg-8">Məbləğ</div>
+                              <div className="col-lg-4 price"> {totalPrice}₼</div>
+                            </div>
+                          </td>
+                        </tr>
+                      </thead>
+                      <thead>
+                        <tr>
+                          <td>
+                            <div className="row justify-content-between align-items-center">
+                              <div className="col-lg-8">Ümumi məbləğ</div>
+                              <div className="col-lg-4 price"> {totalPrice}₼</div>
+                            </div>
+                          </td>
+                        </tr>
+                      </thead>
                     </table>
                     <button onClick={() => addOrder()} >
                       Sifarişi rəsmiləşdir

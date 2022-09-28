@@ -1,6 +1,6 @@
-
 import { BASE_URL } from "../../api/Config"
 import { CHECK_OUT } from "../Constants/CheckOutConstant"
+
 
 export const CheckOutAction =(userId) => async (dispach,getstate) =>{
     var products =JSON.parse(localStorage.getItem("cartItems"))
@@ -19,7 +19,7 @@ export const CheckOutAction =(userId) => async (dispach,getstate) =>{
                     totalQuantity : products[i].quantity,
                     orderTrackingId : 1,
                     isDelivered: false,
-                    k205UserId : userId
+                    UserId : userId
                 }
             )
         }).then(response => response.json())

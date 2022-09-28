@@ -35,9 +35,13 @@
                     transition: 0.3s ease-in-out;
                     opacity: 0;
 
+                    cursor: pointer;
+                        svg{
+                            color: white;
+                        }
                     span {
+                        color: red;
                         transition: 0.3s ease-in-out;
-                        color: white;
                     }
 
                     &:nth-child(1) {
@@ -93,10 +97,7 @@
                     .icon-box {
                         opacity: 1;
                         transform: translateX(0);
-                        cursor: pointer;
-                        svg{
-                            color: white;
-                        }
+                        
                     }
 
                 }

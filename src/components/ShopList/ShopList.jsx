@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import '../ShopList/shopList.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductsAction } from "../../redux/Actions/ProductAction";
@@ -7,17 +7,14 @@ import { addToCartAction } from './../../redux/Actions/CartAction';
 import { ToastContainer, toast } from 'react-toastify';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { CartContext } from "../../context/MyContext";
 
 
 function Shop() {
 
     const { cartItems } = useSelector((state) => state.cart)
     const { favoriesItems } = useSelector((state) => state.favories)
-    const getProduct = useSelector((state) => state.products.products.message);
+    const { products } = useSelector((state) => state.products)
     const dispatch = useDispatch();
-    const [cart, setCart] = useState(0)
-    const { cartCount, setCartCount } = useContext(CartContext);
 
     const notify = () => toast("Product added to cart !");
     const notifyF = () => toast("Product added to favourites !");
@@ -29,7 +26,6 @@ function Shop() {
         } else {
             dispatch(addToCartAction(id, 1))
         }
-        setCartCount(cartCount + 1);
     }
 
     const addToCartHandler = (id, name) => {
@@ -39,7 +35,6 @@ function Shop() {
         } else {
             dispatch(addToFavoriesAction(id, 1))
         }
-        setCartCount(cartCount + 1);
     }
 
 
@@ -62,8 +57,8 @@ function Shop() {
                     <div className="products">
                         <h1 className='text-center mb-5'>All Products</h1>
                         <div className="row">
-                            {getProduct &&
-                                getProduct.map((e) => (
+                            {products &&
+                                products.map((e) => (
                                     <div className="col-lg-4">
                                         <div key={Math.floor(Math.random() * 100000000)} className="trendingproduct-box">
                                             <div className="trendingproduct-img">
@@ -93,26 +88,10 @@ function Shop() {
                                         </div>
                                     </div>
                                 ))}
-
-
                         </div>
                     </div>
                 </div>
-                <ToastContainer
-                    limit={3}
-                    position="top-right"
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                />
-                <ToastContainer />
             </section >
-
         </div >
     )
 }

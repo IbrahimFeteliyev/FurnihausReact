@@ -1,5 +1,5 @@
 import { BASE_URL } from "../../api/Config"
-import { ADD_TO_FAVORIES, GET_FAVORIES_ITEMS,  REMOVE_FAVORIES_ITEMS } from "../Constants/FavoriesConstants"
+import { ADD_TO_FAVORIES, GET_FAVORIES_ITEMS, REMOVE_FAVORIES_ITEMS } from "../Constants/FavoriesConstants"
 
 
 export const addToFavoriesAction = (id,quantity=1) => async (dispach, getState) => {

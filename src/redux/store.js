@@ -1,5 +1,5 @@
 import { applyMiddleware, combineReducers, createStore } from "@reduxjs/toolkit";
-import { productReducer } from "../redux/Reducers/ProductReducer"
+import { ProductReducers } from "../redux/Reducers/ProductReducer"
 import { CartReducer } from "./Reducers/CartReducer";
 import { addCheckOutReducer } from "./Reducers/CheckOutReducer";
 import { FavoriesReducer } from "./Reducers/FavoriesReducer";
@@ -12,7 +12,7 @@ const {default: thunk} = require("redux-thunk")
 
 
 const reducer = combineReducers({
-    products: productReducer,
+    products: ProductReducers,
     user: UserReducer,
     cart: CartReducer,
     checkout: addCheckOutReducer,
@@ -31,6 +31,7 @@ const favoriesItemFromLocalStorage = localStorage.getItem("favoriesItems")
 
 
 const initialState ={
+    products : [],
     user: {userInfo: userInfoFromLocalStorage},
     cart:{cartItems:cartItemFromLocalStorage},
     checkout: {checkOut: []},
@@ -41,11 +42,8 @@ const initialState ={
 const middleware = [thunk]
 
 
-const store = createStore(
-    reducer,
-    initialState,   
-    applyMiddleware(...middleware)
-)
+const store = createStore(reducer, initialState, applyMiddleware(...middleware))
+
 
 
 export default store;

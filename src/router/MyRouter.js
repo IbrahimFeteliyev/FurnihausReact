@@ -14,6 +14,7 @@ import CartPage from '../pages/CartPage'
 import FavouritePage from '../pages/FavouritePage'
 import ConfirmCart from '../pages/ConfirmCart'
 import CartSuccess from '../pages/CartSuccess'
+import { ToastContainer } from 'react-toastify'
 
 function MyRouter() {
   return (
@@ -22,7 +23,7 @@ function MyRouter() {
         <Routes>
             <Route path='/' element={<Home/>}/> 
             <Route path='/shop' element={<Shop/>}/>
-            <Route path='/detail' element={<Detail/>}/>
+            <Route path='/product/:id' element={<Detail/>}/>
             <Route path='/blog' element={<Blog/>}/>
             <Route path='/allblogs' element={<AllBlogs/>}/>
             <Route path='/login' element={<LoginPage/>}/>
@@ -34,6 +35,19 @@ function MyRouter() {
             <Route path='/cartsuccess' element={<CartSuccess/>}/>
             <Route path='*' element={<NotFoundPage/>}/>
         </Routes>
+        <ToastContainer
+                limit={3}
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+            <ToastContainer />
    </div>
   )
 }
