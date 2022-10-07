@@ -1,14 +1,14 @@
 import React from 'react'
 import BlogComment from '../components/BlogComment/BlogComment'
-import BlogSection from '../components/BlogSection/BlogSection'
+import BlogDetail from '../components/BlogDetail/BlogDetail'
 import RelatedArticle from '../components/RelatedArticle/RelatedArticle'
 
 function Blog() {
   return (
     <div>
-        <BlogSection/>
+        <BlogDetail/>
         <RelatedArticle/>
-        <BlogComment/>
+        {/* <BlogComment/> */}
     </div>
   )
 }

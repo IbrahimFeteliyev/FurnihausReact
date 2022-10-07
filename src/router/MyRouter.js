@@ -24,7 +24,7 @@ function MyRouter() {
             <Route path='/' element={<Home/>}/> 
             <Route path='/shop' element={<Shop/>}/>
             <Route path='/product/:id' element={<Detail/>}/>
-            <Route path='/blog' element={<Blog/>}/>
+            <Route path='/blog/:id' element={<Blog/>}/>
             <Route path='/allblogs' element={<AllBlogs/>}/>
             <Route path='/login' element={<LoginPage/>}/>
             <Route path='/register' element={<RegisterPage/>}/>

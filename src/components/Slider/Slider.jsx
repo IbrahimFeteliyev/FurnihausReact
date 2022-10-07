@@ -8,7 +8,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
 import { BASE_URL } from '../../api/Config';
 
 function Slider() {

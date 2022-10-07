@@ -99,7 +99,7 @@ function Header() {
                   </li>
                   <li className='header-li'><Link to="/shop">SHOP</Link></li>
                   <li className='header-li'><a href="#">PAGES</a></li>
-                  <li className='header-li'><a href="#">BLOG</a></li>
+                  <li className='header-li'><Link to="/allblogs">BLOG</Link></li>
                   <li className='header-li'><a href="#">CONTACT</a></li>
                 </ul>
               </div>

@@ -3,6 +3,8 @@ import '../RelatedArticle/relatedArticle.scss'
 
 
 function RelatedArticle() {
+
+    
     return (
         <section className='related-section'>
             <div className="container">
