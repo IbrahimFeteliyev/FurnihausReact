@@ -14,6 +14,8 @@ function BlogDetail() {
             .then((res) => res.json())
             .then((data) => setBlogs(data));
     };
+
+    
     useEffect(() => {
         dispatch(getBlogsAction());
         getBlogs();

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import '../Slider/slider.scss'
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
+import { Navigation, A11y, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -23,26 +23,25 @@ function Slider() {
     useEffect(() => {
         getSliders();
     }, []);
+
     return (
         <section className='slider-section'>
             {/* Pagination Scrollbar A11y */}
             <Swiper
                 autoplay={{ delay: 3000 }}
-                modules={[Autoplay, Navigation, Pagination]}
+                modules={[Autoplay, Navigation]}
                 spaceBetween={0}
                 slidesPerView={1}
                 navigation
-                pagination={{
-                    type: "progressbar",
-                }}
+            // pagination={{
+            //     type: "progressbar",
+            // }}
             //   pagination={{ clickable: true }}
-            //   scrollbar={{ draggable: true }}
-            //   onSwiper={(swiper) => console.log(swiper)}
-            //   onSlideChange={() => console.log('slide change')}
+
 
             >
                 {
-                    slider.map((e,index) => (
+                    slider.map((e, index) => (
                         <SwiperSlide key={index}>
                             <img className='slider-img' src={e.photoUrl} alt="" />
                             <div className="slider-content">

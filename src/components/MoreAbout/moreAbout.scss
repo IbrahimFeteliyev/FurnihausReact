@@ -1,6 +1,9 @@
 .moreAbout-section {
 
     .boxes {
+        display: flex;
+        flex-wrap: wrap;
+
         .left-box {
             height: 100%;
             background-color: #6cb975;
@@ -46,3 +49,44 @@
         }
     }
 }
+
+@media (max-width: 576px) {
+    .boxes {
+        .left-box {
+            height: 500px !important;
+
+            .text {
+                width: 80%;
+            }
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media(min-width: 576px) and (max-width: 768px) {
+    .boxes {
+        .left-box {
+            height: 550px !important;
+
+            .text {
+                width: 90%;
+            }
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media(min-width: 768px) and (max-width: 992px) {
+    .boxes {
+        .left-box {
+            height: 550px !important;
+
+            .text {
+                width: 90%;
+            }
+        }
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (max-width: 1200px) {}

@@ -15,6 +15,7 @@ import FavouritePage from '../pages/FavouritePage'
 import ConfirmCart from '../pages/ConfirmCart'
 import CartSuccess from '../pages/CartSuccess'
 import { ToastContainer } from 'react-toastify'
+import ContactPage from '../pages/ContactPage'
 
 function MyRouter() {
   return (
@@ -33,6 +34,7 @@ function MyRouter() {
             <Route path='/favourite' element={<FavouritePage/>}/>
             <Route path='/confirmcart' element={<ConfirmCart/>}/>
             <Route path='/cartsuccess' element={<CartSuccess/>}/>
+            <Route path='/contact' element={<ContactPage/>}/>
             <Route path='*' element={<NotFoundPage/>}/>
         </Routes>
         <ToastContainer

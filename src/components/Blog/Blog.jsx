@@ -8,7 +8,7 @@ const Blog = () => {
     const [blog, setBlog] = useState([]);
 
     const getBlogs = async () => {
-        await fetch(BASE_URL + "Blog/getall")
+            fetch(BASE_URL + "Blog/getall")
             .then((a) => a.json())
             .then((data) => setBlog(data));
     };
@@ -25,7 +25,7 @@ const Blog = () => {
                 <div className="row">
                     {
                         blog.map((e, index) => (
-                            <div className="col-lg-6"
+                            <div className="col-lg-6 col-12"
                                 data-aos="fade-up"
                                 data-aos-duration="1000"
                                 key={index}
@@ -33,7 +33,7 @@ const Blog = () => {
                                 <div className="blog-box">
                                     <Link style={{ textDecoration: 'none', color: 'black' }} to={'/blog/' + e.id}  >
                                         <div className="blog-img">
-                                            <img src="http://furnihaus.kaththemes.com/demo/wp-content/uploads/2018/04/neonbrand-381344-unsplash-570x350.jpg" alt="" />
+                                            <img src="https://themes.wpmarvels.com/furnihaus/demo/wp-content/uploads/2018/04/neonbrand-381344-unsplash-670x411.jpg" alt="" />
                                         </div>
                                     </Link>
 

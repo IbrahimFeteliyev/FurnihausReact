@@ -7,7 +7,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from '../../api/Config';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useDispatch, useSelector } from "react-redux";
-import { CartContext } from "../../context/MyContext";
 import { logoutUserAction } from "../../redux/Actions/UserAction";
 
 
@@ -56,7 +55,7 @@ function Header() {
             <div className="col-lg-4">
               <div className="header-left">
                 <div className="logo">
-                  <img src="http://furnihaus.kaththemes.com/demo/wp-content/uploads/2018/05/logo.png" alt="" />
+                  <Link to="/"><img src="https://themes.wpmarvels.com/furnihaus/demo/wp-content/uploads/2018/05/logo.png" alt="" /></Link>
                 </div>
               </div>
             </div>
@@ -65,30 +64,31 @@ function Header() {
                 <ul className='header-ul list-unstyled d-flex justify-content-between'>
                   <li className='header-li'>
                     <Link to="/">HOME</Link>
-                    <ul className="list-unstyled dropped-item">
-                      <li><a href="#">Demo V1</a></li>
-                      <li><a href="#">Demo V2</a></li>
-                      <li><a href="#">Demo V3</a></li>
-                      <li><a href="#">Demo V4</a></li>
-                    </ul>
+                    {/* <ul className="list-unstyled dropped-item">
+                      <li>Demo V1</li>
+                      <li>Demo V2</li>
+                      <li>Demo V3</li>
+                      <li>Demo V4</li>
+                    </ul> */}
                   </li>
                   <li className='header-li'>
-                    <a href="#">FURNITURE</a>
+                    <Link to="/">FURNITURE</Link>
+                    {/* <a href="/">FURNITURE</a> */}
                     <ul className="list-unstyled  dropped-big-menu">
 
                       {
                         category &&
                         category.map((e) => (
-                          <li className='dropped-big-menu-li' key={Math.floor(Math.random() * 100000000)}>
+                          <li className='dropped-big-menu-li' key={e.id}>
                             <ul>
                               <li className="list-unstyled">
                                 <img className='img-fluid' src="https://furnihaus.kaththemes.com/demo/wp-content/uploads/2018/05/livingroom.jpg" alt="" />
                               </li>
                               <li className="list-unstyled"><h4>{e.name}</h4></li>
-                              {e.childCategory.map((cc) => (
-                                <>
+                              {e.childCategory.map((cc, index) => (
+                                <React.Fragment key={index}>
                                   <p>{cc.childCategoryName}</p>
-                                </>
+                                </React.Fragment>
                               ))}
                             </ul>
                           </li>
@@ -98,9 +98,9 @@ function Header() {
                     </ul>
                   </li>
                   <li className='header-li'><Link to="/shop">SHOP</Link></li>
-                  <li className='header-li'><a href="#">PAGES</a></li>
+                  {/* <li className='header-li'><a href="#">PAGES</a></li> */}
                   <li className='header-li'><Link to="/allblogs">BLOG</Link></li>
-                  <li className='header-li'><a href="#">CONTACT</a></li>
+                  <li className='header-li'><Link to="/contact">CONTACT</Link></li>
                 </ul>
               </div>
             </div>
@@ -109,10 +109,10 @@ function Header() {
                 <div className="icons">
                   <SearchIcon />
                   <Link to="/favourite">
-                    <FavoriteBorderIcon   style={{color: "black"}}/>
+                    <FavoriteBorderIcon style={{ color: "black" }} />
                   </Link>
                   <Link to="/cart">
-                      <AddShoppingCartIcon  style={{color: "black"}}/>
+                    <AddShoppingCartIcon style={{ color: "black" }} />
                   </Link>
 
                 </div>

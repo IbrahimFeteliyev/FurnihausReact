@@ -58,8 +58,8 @@ const Favories = () => {
               </tr>
 
               {favoriesItems.length > 0
-                ? favoriesItems.map((product) => (
-                    <tr>
+                ? favoriesItems.map((product,index) => (
+                    <tr key={index}>
                       <td>
                         <img width="80px" src={product.img} alt="" />
                       </td>
@@ -68,10 +68,10 @@ const Favories = () => {
                       <td>
                         <div className="d-flex">
                           <div className="icon">
-                            <i class="fa fa-shopping-cart" onClick={() => addToCartHadler(product.id, product.name)}></i>
+                            <i className="fa fa-shopping-cart" onClick={() => addToCartHadler(product.id, product.name)}></i>
                           </div>
                           <div className="icon1" onClick={() => removeFromFavoriesHandler(product.product)}>
-                            <i class="fa fa-times"></i>
+                            <i className= "fa fa-times"></i>
                           </div>
                         </div>
                       </td>
