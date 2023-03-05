@@ -87,11 +87,11 @@ function Shop() {
                     </div>
 
                     <div className="categories my-5">
-                        <div className="d-flex justify-content-between">
-                            <button onClick={() => setNames(products)} className='col-lg-2 text-center'>All</button>
+                        <div className="row justify-content-between">
+                            <button onClick={() => setNames(products)} className='text-center'>All</button>
                             {category &&
                                 category.map((e, index) => (
-                                    <button onClick={() => filterResult(e.name)} key={index} className='col-lg-3 text-center'>{e.name}</button>
+                                    <button onClick={() => filterResult(e.name)} key={index} className='text-center'>{e.name}</button>
                                 ))}
                         </div>
                     </div>
@@ -101,7 +101,7 @@ function Shop() {
                         <div className="row">
                             {names &&
                                 names.map((e, index) => (
-                                    <div key={index} className="col-lg-4">
+                                    <div key={index} className="col-lg-3 col-md-4 col-sm-6 col-12">
                                         <div className="trendingproduct-box">
                                             <div className="trendingproduct-img">
                                                 <img src={e.coverPhoto} alt="" />

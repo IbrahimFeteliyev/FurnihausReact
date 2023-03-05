@@ -88,10 +88,10 @@ const Cart = () => {
   return (
     <div id="cart">
       <div className="container">
-        <h3>Səbətim</h3>
+        <h3 className="text-center mb-5">Səbətim</h3>
         <div className="container">
           <div className="top">
-            <table>
+            {/* <table>
               <thead>
                 <tr>
                   <th>Şəkil</th>
@@ -117,6 +117,35 @@ const Cart = () => {
                   </tbody>
                 ))
                 : "Mehsul yoxdur"}
+            </table> */}
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Şəkil</th>
+                  <th>Məhsulun adı</th>
+                  <th>Sayı</th>
+                  <th>Qiyməti</th>
+                  <th>Məbləğ</th>
+                </tr>
+              </thead>
+                {cartItems.length > 0
+                  ? cartItems.map((product) => (
+                    <tbody key={Math.floor(Math.random() * 100000000)}>
+                      <tr>
+                        <td data-label="Şəkil">
+                          <img width="40%" src={product.img} alt="" />
+                        </td>
+                        <td data-label="Məhsulun adı">{product.name}</td>
+                        <td data-label="Sayı">{product.quantity} ədəd</td>
+                        <td data-label="Qiyməti">{product.price}₼</td>
+                        <td data-label="Məbləğ">{product.price * product.quantity}₼</td>
+                      </tr>
+                    </tbody>
+                  ))
+                  : <span className='wishlist-none'>"Mehsul yoxdur"</span>}
+              
+
+
             </table>
           </div>
 

@@ -11,7 +11,7 @@ const CartSuccessComponent = () => {
             <div className="card p-3">
               <div className="card-body">
                 <div className="row">
-                  {/* <svg
+                  <svg
                     width="48"
                     height="51"
                     viewBox="0 0 48 51"
@@ -44,7 +44,7 @@ const CartSuccessComponent = () => {
                         <stop offset="1" stop-color="#2BDBF3"></stop>
                       </linearGradient>
                     </defs>
-                  </svg> */}
+                  </svg>
                   <h4>Sifarişiniz tamamlandı.</h4>
                   <p>Qısa zaman ərzində sizinlə əlaqə saxlayacağıq.</p>
 

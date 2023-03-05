@@ -16,13 +16,13 @@ const Confirm = () => {
               <div className="card p-3">
                 <div className="card-body">
                   <div className="row">
-                    <div className="col-lg-6">
+                    <div className="col-lg-6 mb-2">
                       <TextField required id="outlined-basic" fullWidth label="Ad"  variant="outlined"/>
                     </div>
-                    <div className="col-lg-6 ">
+                    <div className="col-lg-6 mb-2">
                       <TextField required id="outlined-basic" fullWidth label="Soyad" variant="outlined" />
                     </div>
-                    <div className="col-lg-6 my-4">
+                    <div className="col-lg-6 mb-2">
                       <TextField required id="outlined-basic" fullWidth label="Mobil nömrə" type="number" variant="outlined" />
                     </div>
                    

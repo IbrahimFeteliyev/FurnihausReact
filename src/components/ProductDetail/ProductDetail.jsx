@@ -159,7 +159,7 @@ function ProductDetail() {
             <div className="col-lg-6">
               <div className="left-box">
                 <div className="row">
-                  <div className="col-lg-2">
+                  <div className="col-lg-2 minipictures">
                     {product.productPictures &&
                       product.productPictures.map((e) => (
                         <img
@@ -171,7 +171,7 @@ function ProductDetail() {
                         />
                       ))}
                   </div>
-                  <div className="col-lg-10">
+                  <div className="col-lg-10 col-6">
 
                     {product.productPictures && (
                       <div className="big-picture">

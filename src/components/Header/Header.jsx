@@ -8,7 +8,7 @@ import { BASE_URL } from '../../api/Config';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUserAction } from "../../redux/Actions/UserAction";
-
+import MenuIcon from '@mui/icons-material/Menu';
 
 function Header() {
 
@@ -51,15 +51,15 @@ function Header() {
     <div>
       <div className="header">
         <div className="container">
-          <div className="row align-items-center justify-content-center">
-            <div className="col-lg-4">
+          <div className="row align-items-center justify-content-between">
+            <div className="col-lg-4 col-6">
               <div className="header-left">
                 <div className="logo">
                   <Link to="/"><img src="https://themes.wpmarvels.com/furnihaus/demo/wp-content/uploads/2018/05/logo.png" alt="" /></Link>
                 </div>
               </div>
             </div>
-            <div className="col-lg-5">
+            <div className="col-lg-5 res-center">
               <div className="header-center">
                 <ul className='header-ul list-unstyled d-flex justify-content-between'>
                   <li className='header-li'>
@@ -104,7 +104,7 @@ function Header() {
                 </ul>
               </div>
             </div>
-            <div className="col-lg-3">
+            <div className="col-lg-3 col-6">
               <div className="header-right">
                 <div className="icons">
                   <SearchIcon />

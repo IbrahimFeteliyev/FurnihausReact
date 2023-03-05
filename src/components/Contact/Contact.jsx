@@ -17,21 +17,21 @@ function Contact() {
         <h1 className='text-center mt-5'>CONTACT</h1>
         <div className="contact-boxes my-5">
           <div className="row">
-            <div className="col-lg-4 col-12">
+            <div className="col-lg-4 col-12 col-md-6 mb-5">
               <div className="contact-box text-center">
                 <div className="icon mb-2"><LocationOnOutlinedIcon /></div>
                 <div className="title mb-2">Address</div>
                 <div className="description">Local street address here, <br /> State, Zip code, Country</div>
               </div>
             </div>
-            <div className="col-lg-4 col-12">
+            <div className="col-lg-4 col-12 col-md-6 mb-5">
               <div className="contact-box text-center">
                 <div className="icon mb-2"><PhoneOutlinedIcon /></div>
                 <div className="title mb-2">Phone & Email</div>
                 <div className="description">1-098-3456-7890 info@yourdomain.com</div>
               </div>
             </div>
-            <div className="col-lg-4 col-12">
+            <div className="col-lg-4 col-12 col-md-6 mb-5">
               <div className="contact-box text-center">
                 <div className="icon mb-2"><ShareOutlinedIcon /></div>
                 <div className="title mb-2">Address</div>

@@ -27,7 +27,7 @@ console.log(userInfo);
             <div className="container">
               <div className="row">
                 <div className="col-lg-6 m-auto">
-                  <div className="card p-3">
+                  <div className="card p-2">
                     <div className="card-body">
                       <h5>{userInfo.fullName}</h5>
                       <span>Siz artıq hesaba daxil olmusunuz</span>

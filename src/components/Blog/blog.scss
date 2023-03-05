@@ -1,11 +1,9 @@
 .blog-section {
-    height: 120vh;
-    padding: 100px 0;
+    // height: 120vh;
+    padding: 50px 0;
+
 
     .blog-box {
-        width: 100%;
-        position: relative;
-
         .blog-img {
             overflow: hidden;
 
@@ -19,95 +17,33 @@
             }
         }
 
-    }
+        .blog-text {
+            padding: 10%;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px 0px, rgba(0, 0, 0, 0.22) 0px 10px 10px 0px;
 
-    .blog-text {
-        width: 90%;
-        position: absolute;
-        top: 80%;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 10%;
-        background-color: white;
+            .text-top {
+                span {
+                    font-weight: 500;
 
-
-        .text-top {
-            span {
-                font-weight: 500;
-
-                &:last-child {
-                    margin-left: 10px;
+                    &:last-child {
+                        margin-left: 10px;
+                    }
                 }
             }
 
-        }
+            button {
+                font-size: 14px;
+                font-weight: 500;
+                border: 2px solid black;
+                padding: 15px 30px;
+                background-color: white;
+                transition: 0.2s ease-in-out;
 
-        button {
-            font-size: 14px;
-            font-weight: 500;
-            border: 2px solid black;
-            padding: 15px 30px;
-            background-color: white;
-            transition: 0.2s ease-in-out;
-
-            &:hover {
-                background-color: black;
-                color: white;
+                &:hover {
+                    background-color: black;
+                    color: white;
+                }
             }
         }
-
-    }
-}
-
-
-
-
-@media (max-width: 576px) {
-    .blog-section {
-        margin-bottom: 550px;
-        .blog-box {
-            height: 700px !important;
-        }
-
-        .blog-text {
-            top: 35%;
-        }
-    }
-}
-
-// Medium devices (tablets, 768px and up)
-@media(min-width: 576px) and (max-width: 768px) {
-    .blog-section {
-        margin-bottom: 450px;
-
-        .blog-box {
-            height: 700px !important;
-        }
-
-        .blog-text {
-            top: 35%;
-        }
-    }
-}
-
-// Large devices (desktops, 992px and up)
-@media(min-width: 768px) and (max-width: 992px) {
-    .blog-section {
-        margin-bottom: 470px;
-        .blog-box {
-            height: 700px !important;
-        }
-
-        .blog-text {
-            top: 35%;
-        }
-    }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media(min-width: 992px) and (max-width: 1200px) {
-    .blog-section {
-        margin-bottom: 5px;
-
     }
 }

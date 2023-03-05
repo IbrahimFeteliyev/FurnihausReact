@@ -26,9 +26,9 @@ function BlogList() {
                     <div className="row">
                         {
                             blog.map((e, index) => (
-                                <div className="col-lg-4">
+                                <div className="col-lg-4 col-md-6 col-12 mb-5">
                                     <div className="blog-box">
-                                        <div className="img">
+                                        <div className="img mb-3">
                                             <Link style={{ textDecoration: 'none', color: 'black' }} to={'/blog/' + e.id}  >
                                                 <img width={300} height={250} src={e.image} alt="blog-photo" />
 

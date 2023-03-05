@@ -6,11 +6,15 @@
         box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
         button {
             margin: 20px;
-            padding: 10px 200px;
+            width: 80%;
+            padding: 10px 0;
             border: none;
             background-color: #ffc400;
             color: white;
             border-radius: 5px;
+            i{
+                margin-right: 5px;
+            }
         }
 
     }
