@@ -9,10 +9,9 @@
 }
 
 :root {
-	--mainColor: #6cb975;
 	--mainColorLight: #5767aa;
-	--secondaryColor: #db2b39;
-	--textColor: #eee;
+	--secondaryColor: #6cb975;
+	--textColor: black;
 }
 
 header {
@@ -21,7 +20,7 @@ header {
 	justify-content: space-between;
 	height: 80px;
 	padding: 0 2rem;
-	background-color: var(--mainColor);
+	background-color: white;
 	color: var(--textColor);
 
 	nav {
@@ -35,6 +34,77 @@ header {
 			&:hover {
 				color: var(--secondaryColor);
 
+			}
+
+			svg {
+				color: var(--textColor) !important;
+			}
+		}
+
+		.user {
+
+			position: relative;
+
+			span {
+				font-size: 13px;
+				font-weight: 500;
+				cursor: pointer;
+				margin-left: 7px;
+				transition: 0.3s ease-in-out;
+				margin: 0 1rem;
+
+			}
+
+
+
+			.account-all {
+				box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+					rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+				padding: 0px 0px;
+				position: absolute;
+				top: 38px;
+				width: 150px;
+				right: 0px;
+				transition: 0.3s ease-in-out;
+				display: inline-block;
+				background: #fff;
+				opacity: 0;
+				transform: translateY(20px);
+				visibility: hidden;
+				z-index: 999999;
+				margin: 0 !important;
+
+				a {
+					margin: 0 !important;
+
+					li {
+						list-style: none;
+						font-size: 12px;
+						font-family: 'Times New Roman', Times, serif;
+						color: black;
+						cursor: pointer;
+						transition: 0.3s ease-in-out;
+						padding: 10px;
+						z-index: 999999999;
+						margin: 0 !important;
+						text-align: center;
+
+						&:hover {
+							background-color: #515151;
+							color: white;
+
+						}
+					}
+				}
+
+			}
+
+			&:hover {
+				.account-all {
+					visibility: visible;
+					opacity: 1;
+					transform: translateY(0px);
+				}
 			}
 		}
 	}
@@ -60,7 +130,6 @@ header {
 @media only screen and (max-width: 1024px) {
 	header {
 
-
 		.nav-btn {
 			visibility: visible;
 			opacity: 1;
@@ -69,16 +138,17 @@ header {
 		}
 
 		.responsive_nav {
-			transform: translateY(100vh);
+			transform: translateY(110vh);
 
 		}
-		.g{
+
+		.g {
 			flex-direction: column;
 		}
 
 		nav {
 			position: fixed;
-			top: -100vh;
+			top: -110vh;
 			left: 0;
 			height: 100%;
 			width: 100%;
@@ -87,10 +157,17 @@ header {
 			align-items: center;
 			justify-content: center;
 			gap: 1.5rem;
-			background-color: var(--mainColor);
+			background-color: white;
 			transition: 1s;
 			z-index: 999999999;
 			overflow: hidden;
+
+			.account-all {
+				opacity: 1 !important;
+				visibility: visible !important;
+				left: 50% !important;
+				transform: translate(-50%, 0) !important;
+			}
 
 			.nav-close-btn {
 				position: absolute;
@@ -100,7 +177,10 @@ header {
 
 			a {
 				font-size: 1.5rem;
+
+
 			}
+
 
 		}
 	}

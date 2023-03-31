@@ -6,6 +6,7 @@ import { getUserAction } from "../../redux/Actions/UserAction";
 import { CheckOutAction } from "./../../redux/Actions/CheckOutAction";
 import { removeAllCartAction } from "./../../redux/Actions/CartAction";
 import { Link, useNavigate } from "react-router-dom";
+import { FILE_PATH } from "../../api/Config";
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -91,33 +92,6 @@ const Cart = () => {
         <h3 className="text-center mb-5">Səbətim</h3>
         <div className="container">
           <div className="top">
-            {/* <table>
-              <thead>
-                <tr>
-                  <th>Şəkil</th>
-                  <th>Məhsulun adı</th>
-                  <th>Sayı</th>
-                  <th>Qiyməti</th>
-                  <th>Məbləğ</th>
-                </tr>
-              </thead>
-
-              {cartItems.length > 0
-                ? cartItems.map((product) => (
-                  <tbody key={Math.floor(Math.random() * 100000000)}>
-                    <tr>
-                      <td>
-                        <img width="150px" src={product.img} alt="" />
-                      </td>
-                      <td>{product.name}</td>
-                      <td>{product.quantity} ədəd</td>
-                      <td>{product.price}₼</td>
-                      <td>{product.price * product.quantity}₼</td>
-                    </tr>
-                  </tbody>
-                ))
-                : "Mehsul yoxdur"}
-            </table> */}
             <table class="table">
               <thead>
                 <tr>
@@ -133,7 +107,7 @@ const Cart = () => {
                     <tbody key={Math.floor(Math.random() * 100000000)}>
                       <tr>
                         <td data-label="Şəkil">
-                          <img width="40%" src={product.img} alt="" />
+                          <img width="40%" src={`${FILE_PATH}${product.img}`} alt="" />
                         </td>
                         <td data-label="Məhsulun adı">{product.name}</td>
                         <td data-label="Sayı">{product.quantity} ədəd</td>

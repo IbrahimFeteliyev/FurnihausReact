@@ -77,7 +77,6 @@ function Categories() {
                                 </Link>
                             </div>
                         </div>
-
                     </div>
                     <div className="button mt-4" data-aos="fade-up"
                         data-aos-duration="1000">

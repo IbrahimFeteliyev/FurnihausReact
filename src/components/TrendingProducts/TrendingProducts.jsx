@@ -18,14 +18,18 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
+import Model from '../Model/Model';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import { FILE_PATH } from '../../api/Config';
 
 function TrendingProducts() {
     const { cartItems } = useSelector((state) => state.cart)
     const { favoriesItems } = useSelector((state) => state.favories)
     const { products } = useSelector((state) => state.products)
+    const [active, setActive] = useState(false)
     const dispatch = useDispatch();
-    const [cart, setCart] = useState(0)
     const { cartCount, setCartCount } = useContext(CartContext);
+    // const [cart, setCart] = useState(0)
 
     const notify = () => toast("Product added to cart !");
     const notifyF = () => toast("Product added to favourites !");
@@ -49,6 +53,8 @@ function TrendingProducts() {
         }
         setCartCount(cartCount + 1);
     }
+
+
 
 
     useEffect(() => {
@@ -95,32 +101,29 @@ function TrendingProducts() {
                                 <div className="trendingproduct-box">
                                     <div className="trendingproduct-img">
                                         <Link style={{ textDecoration: 'none', color: 'black' }} to={'/product/' + e.id}  >
-                                            <img src={e.coverPhoto} alt="" />
+                                            <img src={`${FILE_PATH}${e.coverPhoto}`} alt="" />
                                         </Link>
 
                                         <div className="icons">
-                                            <a className="icon-box my-1" onClick={() => { addToFavHandler(e.id, e.name); notifyF(); }}>
+                                            <a href className="icon-box my-1" onClick={() => { addToFavHandler(e.id, e.name); notifyF(); }}>
                                                 <FavoriteBorderIcon />
                                             </a>
-                                            <a className="icon-box my-1" onClick={() => { addToCartHandler(e.id, e.name); notify(); }}>
+                                            <a href className="icon-box my-1" onClick={() => { addToCartHandler(e.id, e.name); notify(); }}>
                                                 <AddShoppingCartIcon />
                                             </a>
-                                            <a className="icon-box my-1">
-                                                <span></span>
-                                            </a>
-                                            <a className="icon-box my-1">
-                                                <span></span>
+                                            <a onClick={() => setActive(!active)} href className="icon-box my-1">
+                                                <button ><RemoveRedEyeIcon /></button>
                                             </a>
                                         </div>
-
                                     </div>
 
                                     <div className="trendingproduct-text text-center">
                                         <span className='my-2 d-block'>{e.name}</span>
                                         <span className='my-2 d-block'>Price : {e.price} $</span>
                                     </div>
-                                    {/* <button className="cart-button" onClick={() => { addToCartHandler(e.id, e.name); notify(); }}>Add to Cart</button> */}
+                                    <button className="cart-button" onClick={() => { addToCartHandler(e.id, e.name); notify(); }}>Add to Cart</button>
                                 </div>
+                                <Model name={e.name} price={e.price} img={`${FILE_PATH}${e.coverPhoto}`} closeModal={() => setActive(false)} openModal={active} />
                             </SwiperSlide>
                         ))}
                 </Swiper>

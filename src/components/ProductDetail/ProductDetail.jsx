@@ -29,7 +29,7 @@ function ProductDetail() {
   const { id } = useParams();
   const [product, setProducts] = useState([]);
   const [photo, setPhoto] = useState([]);
-  const [count, setCounter] = useState(1);
+  // const [count, setCounter] = useState(1);
   const [userName, setUserName] = useState("");
   const [review, setReview] = useState("");
   const [email, setEmail] = useState("");
@@ -156,22 +156,22 @@ function ProductDetail() {
       <div className="container">
         <div className="boxes">
           <div className="row">
-            <div className="col-lg-6">
+            <div className="col-lg-6 col-12">
               <div className="left-box">
                 <div className="row">
                   <div className="col-lg-2 minipictures">
                     {product.productPictures &&
                       product.productPictures.map((e) => (
                         <img
-                          onClick={(a) => setPhoto(e)}
+                          onClick={(a) => setPhoto(`${FILE_PATH}${e}`)}
                           className="sml-picture"
                           width="100%"
-                          src={e}
+                          src={`${FILE_PATH}${e}`}
                           alt=""
                         />
                       ))}
                   </div>
-                  <div className="col-lg-10 col-6">
+                  <div className="col-lg-10 col-12 ">
 
                     {product.productPictures && (
                       <div className="big-picture">
@@ -179,10 +179,10 @@ function ProductDetail() {
                           smallImage: {
                             alt: 'Wristwatch by Ted Baker London',
                             isFluidWidth: true,
-                            src: photo.length === 0 ? product.productPictures[0] : photo
+                            src: photo.length === 0 ? `${FILE_PATH}${product.productPictures[0]}` : photo
                           },
                           largeImage: {
-                            src: photo.length === 0 ? product.productPictures[0] : photo,
+                            src: photo.length === 0 ? `${FILE_PATH}${product.productPictures[0]}` : photo,
                             width: 1200,
                             height: 1800
                           }
@@ -194,10 +194,9 @@ function ProductDetail() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6">
+            <div className="col-lg-6 col-12">
               <div className="right-box">
                 <h1>{product.name}</h1>
-                <div className="d-flex"></div>
                 <h5 className="price">Price: $ {product.price}</h5>
                 {product.isStock == true ? (
                   <div className="stock my-2">
@@ -208,12 +207,6 @@ function ProductDetail() {
                     <p>This product is currently out of stock and unavailable.</p>
                   </div>
                 )}
-
-                <div className="count d-flex">
-                  <RemoveIcon />
-                  <input value={1} type="text" />
-                  <AddIcon />
-                </div>
                 <button className="my-3" onClick={() => { addToCartHandler(product.id, product.name); notify(); }}><ShoppingCartIcon />Add To Cart</button>
                 <div className="wishlist my-2">
                   <span onClick={() => { addToFavHandler(product.id, product.name); notifyF(); }}><FavoriteBorderIcon /><span>Add to Wishlist</span></span>

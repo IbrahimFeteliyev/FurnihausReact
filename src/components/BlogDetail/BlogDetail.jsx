@@ -45,10 +45,6 @@ function BlogDetail() {
                                 </div>
                             </div>
                         </div>
-
-
-
-
                     </div>
                 </div>
 

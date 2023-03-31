@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { FILE_PATH } from '../../api/Config';
 import { CartContext } from '../../context/MyContext';
 import { addToCartAction } from '../../redux/Actions/CartAction';
 import { removeFromFavories } from '../../redux/Actions/FavoriesAction';
@@ -15,6 +17,7 @@ const Favories = () => {
   const { userInfo } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const { cartCount, setCartCount } = useContext(CartContext);
+  const notify = () => toast("Product added to cart !");
 
   const countTotal = () => {
     var price = 0;
@@ -64,14 +67,14 @@ const Favories = () => {
                   <tbody key={Math.floor(Math.random() * 100000000)}>
                     <tr key={index}>
                       <td data-label="Şəkil">
-                        <img width="40%" src={product.img} alt="" />
+                        <img width="40%" src={`${FILE_PATH}${product.img}`} alt="" />
                       </td>
                       <td data-label="Məhsulun adı">{product.name}</td>
                       <td data-label="Qiyməti">{product.price}₼</td>
                       <td data-label="Hərəkət">
                         <div className="d-flex justify-content-end">
                           <div className="icon">
-                            <i className="fa fa-shopping-cart" onClick={() => addToCartHadler(product.id, product.name)}></i>
+                            <i className="fa fa-shopping-cart" onClick={() => {addToCartHadler(product.id, product.name); notify();}}></i>
                           </div>
                           <div className="icon1" onClick={() => removeFromFavoriesHandler(product.product)}>
                             <i className="fa fa-times"></i>

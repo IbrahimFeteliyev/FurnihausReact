@@ -5,11 +5,14 @@
         .category-box {
             position: relative;
             overflow: hidden;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px 0px, rgba(0, 0, 0, 0.23) 0px 3px 6px 0px;
 
-            img {
-                transition: 0.3s ease-in-out;
-                transform: scale(1);
-                width: 100%;
+            a {
+                img {
+                    width: 100% !important;
+                    transition: 0.3s ease-in-out;
+                    transform: scale(1);
+                }
             }
 
             .category-text {
@@ -51,7 +54,7 @@
                 padding: 10px 7%;
                 background-color: white;
                 transition: 0.3s ease-in-out;
-                
+
                 &:hover {
                     color: white;
                     background-color: black;

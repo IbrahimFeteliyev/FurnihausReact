@@ -7,8 +7,10 @@ import { addToCartAction } from './../../redux/Actions/CartAction';
 import { ToastContainer, toast } from 'react-toastify';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { BASE_URL } from '../../api/Config';
+import { BASE_URL, FILE_PATH } from '../../api/Config';
 import SearchIcon from '@mui/icons-material/Search';
+import Model from '../Model/Model';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
 function Shop() {
 
@@ -16,6 +18,7 @@ function Shop() {
     const { favoriesItems } = useSelector((state) => state.favories)
     const { products } = useSelector((state) => state.products)
     const [category, setCategory] = useState([]);
+    const [active, setActive] = useState(false)
 
     const dispatch = useDispatch();
 
@@ -102,9 +105,9 @@ function Shop() {
                             {names &&
                                 names.map((e, index) => (
                                     <div key={index} className="col-lg-3 col-md-4 col-sm-6 col-12">
-                                        <div className="trendingproduct-box">
+                                        <div className="trendingproduct-box mb-5">
                                             <div className="trendingproduct-img">
-                                                <img src={e.coverPhoto} alt="" />
+                                                <img src={`${FILE_PATH}${e.coverPhoto}`} alt="" />
                                                 <div className="icons">
                                                     <a className="icon-box my-1" onClick={() => { addToFavHandler(e.id, e.name); notifyF(); }}>
                                                         <FavoriteBorderIcon />
@@ -113,10 +116,7 @@ function Shop() {
                                                         <AddShoppingCartIcon />
                                                     </a>
                                                     <a className="icon-box my-1">
-                                                        <span>C</span>
-                                                    </a>
-                                                    <a className="icon-box my-1">
-                                                        <span>D</span>
+                                                        <button onClick={() => setActive(!active)}><RemoveRedEyeIcon /></button>
                                                     </a>
                                                 </div>
                                             </div>
@@ -126,6 +126,7 @@ function Shop() {
                                             </div>
                                             <button className="cart-button" onClick={() => { addToCartHandler(e.id, e.name); notify(); }}>Add to Cart</button>
                                         </div>
+                                        <Model name={e.name} closeModal={() => setActive(false)} openModal={active} />
                                     </div>
                                 ))}
                         </div>

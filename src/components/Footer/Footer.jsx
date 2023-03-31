@@ -9,7 +9,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 function Footer() {
   return (
     <section className='section-footer'>
-      <ScrollToTop smooth top="20" />
+      <ScrollToTop smooth top="1300" />
       <div className="footer-top">
         <div className="container">
           <div className="row">

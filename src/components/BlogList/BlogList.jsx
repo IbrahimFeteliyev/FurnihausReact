@@ -20,9 +20,14 @@ function BlogList() {
 
     return (
         <div>
+            <section className="blog-banner">
+                <div className="text">
+                    <h2>All Blogs</h2>
+                </div>
+                <div className="black"></div>
+            </section>
             <div className="container">
                 <div className="blog-boxes">
-                    <h1 className='mb-5' style={{ textAlign: "center" }}>All Blogs</h1>
                     <div className="row">
                         {
                             blog.map((e, index) => (

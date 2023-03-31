@@ -1,5 +1,4 @@
 import './App.css';
-import Header from './components/Header/Header';
 import HeaderRes from './components/HeaderRes/HeaderRes';
 import Footer from './components/Footer/Footer';
 import { CartContext } from './context/MyContext';
@@ -16,13 +15,12 @@ function App() {
   return (
     <div>
         <CartContext.Provider value={data}>
-        <Header/>
-        {/* <HeaderRes/> */}
+        <HeaderRes/>
         <MyRouter/>
         <Footer/>
         </CartContext.Provider>
     </div>
-  );
+  );  
 }
 
 export default App;
