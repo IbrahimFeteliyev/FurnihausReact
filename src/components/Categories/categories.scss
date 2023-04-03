@@ -50,16 +50,19 @@
             display: flex;
             justify-content: center;
 
-            button {
+            a {
+                border: 1px solid black;
+                text-decoration: none;
                 padding: 10px 7%;
                 background-color: white;
                 transition: 0.3s ease-in-out;
-
+                color: black;
                 &:hover {
                     color: white;
                     background-color: black;
                 }
             }
         }
+
     }
 }

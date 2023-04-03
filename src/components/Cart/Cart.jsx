@@ -28,19 +28,19 @@ const Cart = () => {
     if (userInfo.length !== 0) {
       const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
-          confirmButton: "btn btn-success",
-          cancelButton: "btn btn-danger",
+          confirmButton: "btn btn-success mx-2",
+          cancelButton: "btn btn-danger mx-2",
         },
         buttonsStyling: false,
       });
       swalWithBootstrapButtons
         .fire({
-          title: "Sifarisi tamamlamaq istediyinizden eminsiniz?",
+          title: "Sifarişi tamamlamaq istədiyinizdən əminsiniz?",
           icon: "warning",
           showCancelButton: true,
-          confirmButtonText: "Sifarisi tamamla",
-          cancelButtonText: "Legv et!",
-          reverseButtons: true,
+          confirmButtonText: "Sifarişi tamamla",
+          cancelButtonText: "Ləğv et!",
+          reverseButtons: false,
           closeOnConfirm: false
         })
         .then((isConfirm, dismiss) => {
@@ -48,7 +48,7 @@ const Cart = () => {
             if (cartItems.length > 0) {
               dispach(CheckOutAction(userInfo.id));
               dispach(removeAllCartAction());
-              navigate("/confirmcart");
+              navigate("/cartsuccess");
             }
             else {
               Swal.fire("Səbətiniz boşdur.");

@@ -29,7 +29,7 @@ function ProductDetail() {
   const { id } = useParams();
   const [product, setProducts] = useState([]);
   const [photo, setPhoto] = useState([]);
-  // const [count, setCounter] = useState(1);
+  const [count, setCounter] = useState(1);
   const [userName, setUserName] = useState("");
   const [review, setReview] = useState("");
   const [email, setEmail] = useState("");
@@ -271,76 +271,78 @@ function ProductDetail() {
                       </div>
                       <div class="comment-input-box">
                         <div class="row">
-                          <div class="col-lg-12">
-                            <div class="comment-input">
-                              <input
-                                width="100%"
-                                onChange={(e) => setUserName(e.target.value)}
-                                type="text"
-                                placeholder="Name"
-                                required
-                              />
+                          <form>
+                            <div class="col-lg-12">
+                              <div class="comment-input">
+                                <input
+                                  width="100%"
+                                  onChange={(e) => setUserName(e.target.value)}
+                                  type="text"
+                                  placeholder="Name"
+                                  required
+                                />
+                              </div>
                             </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="comment-input">
-                              <input
-                                onChange={(e) => setEmail(e.target.value)}
-                                type="email"
-                                placeholder="Email"
-                                required
-                              />
+                            <div class="col-lg-12">
+                              <div class="comment-input">
+                                <input
+                                  onChange={(e) => setEmail(e.target.value)}
+                                  type="email"
+                                  placeholder="Email"
+                                  required
+                                />
+                              </div>
                             </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <textarea
-                              onChange={(e) => setReview(e.target.value)}
-                              placeholder="Your review"
-                              class="comment-input comment-textarea"
-                            ></textarea>
-                          </div>
-                          <div class="comment-rating">
-                            <div className="d-flex">
-                              <span>Your rating : </span>
-                              <div style={styles.containerr}>
-                                <div style={styles.stars}>
-                                  {stars.map((_, index) => {
-                                    return (
-                                      <FaStar
-                                        key={index}
-                                        size={15}
-                                        style={{
-                                          marginRight: 10,
-                                          cursor: "pointer",
-                                        }}
-                                        color={
-                                          (hoverValue || currentValue) > index
-                                            ? colors.orange
-                                            : colors.grey
-                                        }
-                                        onClick={() => handleClick(index + 1)}
-                                        onMouseOver={() =>
-                                          handleMouseOver(index + 1)
-                                        }
-                                        onMouseLeave={handleMouseLeave}
-                                      />
-                                    );
-                                  })}
+                            <div class="col-lg-12">
+                              <textarea
+                                onChange={(e) => setReview(e.target.value)}
+                                placeholder="Your review"
+                                class="comment-input comment-textarea"
+                              ></textarea>
+                            </div>
+                            <div class="comment-rating">
+                              <div className="d-flex">
+                                <span>Your rating : </span>
+                                <div style={styles.containerr}>
+                                  <div style={styles.stars}>
+                                    {stars.map((_, index) => {
+                                      return (
+                                        <FaStar
+                                          key={index}
+                                          size={15}
+                                          style={{
+                                            marginRight: 10,
+                                            cursor: "pointer",
+                                          }}
+                                          color={
+                                            (hoverValue || currentValue) > index
+                                              ? colors.orange
+                                              : colors.grey
+                                          }
+                                          onClick={() => handleClick(index + 1)}
+                                          onMouseOver={() =>
+                                            handleMouseOver(index + 1)
+                                          }
+                                          onMouseLeave={handleMouseLeave}
+                                        />
+                                      );
+                                    })}
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="comment-submit">
-                              <button
-                                onClick={(e) => postComment()}
-                                type="submit"
-                                class="cart-btn"
-                              >
-                                Submit
-                              </button>
+                            <div class="col-lg-12">
+                              <div class="comment-submit">
+                                <button
+                                  onClick={(e) => postComment()}
+                                  type="submit"
+                                  class="cart-btn"
+                                >
+                                  Submit
+                                </button>
+                              </div>
                             </div>
-                          </div>
+                          </form>
                         </div>
                       </div>
                     </div>

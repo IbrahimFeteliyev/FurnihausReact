@@ -12,7 +12,7 @@ import NotFoundPage from '../pages/NotFoundPage'
 import Account from '../components/Account/Account'
 import CartPage from '../pages/CartPage'
 import FavouritePage from '../pages/FavouritePage'
-import ConfirmCart from '../pages/ConfirmCart'
+// import ConfirmCart from '../pages/ConfirmCart'
 import CartSuccess from '../pages/CartSuccess'
 import { ToastContainer } from 'react-toastify'
 import ContactPage from '../pages/ContactPage'
@@ -32,7 +32,7 @@ function MyRouter() {
             <Route path='/account' element={<Account/>}/>
             <Route path='/cart' element={<CartPage/>}/>
             <Route path='/favourite' element={<FavouritePage/>}/>
-            <Route path='/confirmcart' element={<ConfirmCart/>}/>
+            {/* <Route path='/confirmcart' element={<ConfirmCart/>}/> */}
             <Route path='/cartsuccess' element={<CartSuccess/>}/>
             <Route path='/contact' element={<ContactPage/>}/>
             <Route path='*' element={<NotFoundPage/>}/>

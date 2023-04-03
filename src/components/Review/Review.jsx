@@ -27,10 +27,12 @@ function Review() {
                         </div>
                         <div className="col-lg-6">
                             <span>Name *</span>
-                            <input type="text" />                           </div>
+                            <input type="text" />
+                        </div>
                         <div className="col-lg-6">
                             <span>Email *</span>
-                            <input type="text" />                        </div>
+                            <input type="email" pattern=".+@globex\.com" size="30" required/>
+                        </div>
                     </div>
                 </div>
                 <button>SUBMIT</button>

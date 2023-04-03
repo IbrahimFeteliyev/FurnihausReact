@@ -90,11 +90,11 @@ function Shop() {
                     </div>
 
                     <div className="categories my-5">
-                        <div className="row justify-content-between">
-                            <button onClick={() => setNames(products)} className='text-center'>All</button>
+                        <div className="row ">
+                            <button className='my-1 mx-1 text-center' onClick={() => setNames(products)}>All</button>
                             {category &&
                                 category.map((e, index) => (
-                                    <button onClick={() => filterResult(e.name)} key={index} className='text-center'>{e.name}</button>
+                                    <button onClick={() => filterResult(e.name)} key={index} className='text-center my-1 mx-1'>{e.name}</button>
                                 ))}
                         </div>
                     </div>

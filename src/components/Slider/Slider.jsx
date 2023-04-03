@@ -7,8 +7,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-
 import { BASE_URL } from '../../api/Config';
+import { Link } from 'react-router-dom';
 
 function Slider() {
 
@@ -54,11 +54,15 @@ function Slider() {
                                     data-aos-duration="2000"
                                     data-aos-mirror="true">
                                     {e.description}</h3>
-                                <button
-                                    data-aos="fade-right"
-                                    data-aos-delay="1000"
-                                    data-aos-duration="700"
-                                >SHOP NOW</button>
+                                <Link to="/shop">
+                                    <button
+                                        data-aos="fade-right"
+                                        data-aos-delay="1000"
+                                        data-aos-duration="700"
+                                    >
+                                        SHOP NOW
+                                    </button>
+                                </Link>
                             </div>
                         </SwiperSlide>
                     ))
